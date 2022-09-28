@@ -1,0 +1,19 @@
+[package]
+name = "ruthenium"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.65"
+axum = "0.5.16"
+mime_guess = "2.0.4"
+oso = "0.26.2"
+tower = "0.4.13"
+tower-http = { version = "0.3.4", features = ["cors"] }
+rust-embed = { version = "6.4.1", features = ["axum-ex"] }
+serde = { version = "1.0.145", features = ["serde_derive"] }
+tokio = { version = "1.21.1", features = ["full"] }
+tracing = "0.1.36"
+tracing-subscriber = { version = "0.3.15", features = ["env-filter"] }
