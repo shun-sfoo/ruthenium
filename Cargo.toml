@@ -6,14 +6,32 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-anyhow = "1.0.65"
+# Primary crates
 axum = "0.5.16"
-mime_guess = "2.0.4"
-oso = "0.26.2"
+sqlx = { version = "0.6.2", features = ["runtime-tokio-rustls", "postgres", "time", "uuid"] }
+tokio = { version = "1.21.2", features = ["full"] }
+
+# Important sencondary crates
+argon2 = "0.4.1"
+rand = "0.8.5"
+regex = "1.6.0"
+serde = "1.0.145"
+serde_with = { version = "2.0.1", features = ["time_0_3"] }
+time = "0.3.15"
+uuid = { version = "1.2.1", features = ["serde"] }
+validator = { version = "0.16.0", features = ["derive"] }
+
+
+# Auxilliary crates
+anyhow = "1.0.65"
+dotenvy = "0.15.5"
+once_cell = "1.15.0"
+thiserror = "1.0.37"
+tracing = "0.1.37"
+tracing-subscriber = { version = "0.3.16", features = ["env-filter"] }
 tower = "0.4.13"
 tower-http = { version = "0.3.4", features = ["cors"] }
 rust-embed = { version = "6.4.1", features = ["axum-ex"] }
-serde = { version = "1.0.145", features = ["serde_derive"] }
-tokio = { version = "1.21.1", features = ["full"] }
-tracing = "0.1.36"
-tracing-subscriber = { version = "0.3.15", features = ["env-filter"] }
+
+[dev-dependencies]
+serde_json = "1.0.86"
